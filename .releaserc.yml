@@ -16,7 +16,7 @@ plugins:
       - verifyConditionsCmd: "~/.cargo/bin/semantic-release-cargo verify-conditions"
         generateNotes: "cz ch"
         prepareCmd: "~/.cargo/bin/semantic-release-cargo prepare ${nextRelease.version}"
-        publishCmd: "~/.cargo/bin/semantic-release-cargo publish"
+        publishCmd: ""
     - - '@semantic-release/git'
       - assets:
           - Cargo.toml
