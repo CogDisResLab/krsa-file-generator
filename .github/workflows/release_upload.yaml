@@ -63,7 +63,7 @@ jobs:
               MINIFY: true
               RUSTTARGET: ${{matrix.target}}
               ARCHIVE_TYPES: ${{matrix.archive}}
-              UPLOAD_URL: "none"
+              UPLOAD_MODE: "none"
               ARCHIVE_NAME: krsa_file_generator${{env.RELEASE_VERSION}}${{matrix.platform}}
               EXTRA_FILES: "README.md LICENSE-APACHE LICENSE-MIT"
 
@@ -76,7 +76,7 @@ jobs:
               name: krsa_file_generator-${{env.RELEASE_VERSION}}${{matrix.platform}}
               tag_name: v${{env.RELEASE_VERSION}}
               body: ${{inputs.new_release_notes}}
-              prerelease: ${{inputs.new_release_channel == 'alpha' || inputs.new_release_channel == 'beta'}}
+              prerelease: ${{inputs.new_release_channel == 'devel'}}
               files: |
                 ${{steps.release.outputs.BUILT_ARCHIVE}}
                 ${{steps.release.outputs.BUILT_CHECKSUM}}
